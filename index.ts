@@ -1,13 +1,12 @@
 /* eslint-disable max-len */
 import cron from 'node-cron';
 import "dotenv/config";
-const { ActivityType, Client, GatewayIntentBits, Partials, Events, } = require('discord.js'); 
+const { ActivityType, Client, GatewayIntentBits, Events, } = require('discord.js'); 
 import config from './config';
 import { handleCommandByName } from './handlers';
 import { MustBeInGuildError } from './util/mustBeInGuild';
 import { ActivityOptions, ChatInputCommandInteraction, CacheType, Message } from 'node_modules/discord.js/typings';
 // import { checkTwitter } from './twitter';
-
 const activities: ActivityOptions[] = [
   // EDIT: last release
   { name: 'うつくしじごく', url: 'https://open.spotify.com/track/3SugjpnqPJBtgd5XNKENMY', type: ActivityType.Listening },

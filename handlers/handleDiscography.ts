@@ -2,8 +2,9 @@ import { ChatInputCommandInteraction, TextChannel } from "discord.js";
 import { PrismaClient } from "@prisma/client";
 import { CommandInteractionConsumer } from "./types";
 import { createEmbed } from "../util/embed";
-
-const prisma = new PrismaClient();
+import { PrismaPg } from '@prisma/adapter-pg'; // esempio per Postgres
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const prisma = new PrismaClient({ adapter });
 
 const addSongToDiscography = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   const title = interaction.options.getString('title', true);
